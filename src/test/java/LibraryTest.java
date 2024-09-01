@@ -13,7 +13,7 @@ public class LibraryTest {
     @Test
     public void testAddBook() {
         Library library = new Library();
-        Book book = new Book("1234567890", "The Great Gatsby", "F. Scott Fitzgerald", 1925);
+        Book book = new Book("123456", "Wings of Fire", "Abdul Kalam", 1948);
         library.addBook(book);
         assertTrue(library.getBooks().contains(book));
     }
@@ -21,10 +21,10 @@ public class LibraryTest {
     @Test
     public void testBorrowBook() throws Exception {
         Library library = new Library();
-        Book book = new Book("1234567890", "The Great Gatsby", "F. Scott Fitzgerald", 1925);
+        Book book = new Book("123456", "Wings of Fire", "Abdul Kalam", 1948);
         library.addBook(book);
 
-        library.borrowBook("1234567890");
+        library.borrowBook("123456");
 
         assertTrue(book.isBorrowed());
     }
@@ -32,23 +32,23 @@ public class LibraryTest {
     @Test
     public void testBorrowUnavailableBook() {
         Library library = new Library();
-        Book book = new Book("1234567890", "The Great Gatsby", "F. Scott Fitzgerald", 1925);
+        Book book = new Book("123456", "Wings of Fire", "Abdul Kalam", 1948);
         library.addBook(book);
 
         assertThrows(Exception.class, () -> {
-            library.borrowBook("1234567890");
-            library.borrowBook("1234567890");
+            library.borrowBook("123456");
+            library.borrowBook("123456");
         });
     }
 
     @Test
     public void testReturnBook() throws Exception {
         Library library = new Library();
-        Book book = new Book("1234567890", "The Great Gatsby", "F. Scott Fitzgerald", 1925);
+        Book book = new Book("123456", "Wings of Fire", "Abdul Kalam", 1948);
         library.addBook(book);
-        library.borrowBook("1234567890");
+        library.borrowBook("123456");
 
-        library.returnBook("1234567890");
+        library.returnBook("123456");
 
         assertFalse(book.isBorrowed());
     }
@@ -56,11 +56,11 @@ public class LibraryTest {
     @Test
     public void testViewAvailableBooks() throws Exception {
         Library library = new Library();
-        Book book1 = new Book("1234567890", "The Great Gatsby", "F. Scott Fitzgerald", 1925);
-        Book book2 = new Book("0987654321", "1984", "George Orwell", 1949);
+        Book book1 = new Book("123456", "Wings of Fire", "F. Scott Fitzgerald", 1925);
+        Book book2 = new Book("483929", "1984", "XYZ", 1987);
         library.addBook(book1);
         library.addBook(book2);
-        library.borrowBook("1234567890");
+        library.borrowBook("123456");
 
         List<Book> availableBooks = library.getAvailableBooks();
 

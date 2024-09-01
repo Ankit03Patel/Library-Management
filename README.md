@@ -61,7 +61,7 @@ To run the tests:
 - **README.md**: Project documentation
 
 
-- **Test-Driven Development (TDD):**
+### **Test-Driven Development (TDD):**
 
 - All features were developed following TDD practices. Tests were written before the implementation, ensuring each functionality is covered by tests.
 - **SOLID Principles:** The code is designed with SOLID principles in mind, making it easy to maintain, extend, and refactor.

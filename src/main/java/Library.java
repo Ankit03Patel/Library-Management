@@ -44,4 +44,14 @@ public class Library {
         throw new Exception("Book not found");
     }
 
+    public List<Book> getAvailableBooks() {
+        List<Book> availableBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (!book.isBorrowed()) {
+                availableBooks.add(book);
+            }
+        }
+        return availableBooks;
+    }
+
 }

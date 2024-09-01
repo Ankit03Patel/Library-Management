@@ -15,4 +15,16 @@ public class LibraryTest {
         library.addBook(book);
         assertTrue(library.getBooks().contains(book));
     }
+
+    @Test
+    public void testBorrowBook() throws Exception {
+        Library library = new Library();
+        Book book = new Book("1234567890", "The Great Gatsby", "F. Scott Fitzgerald", 1925);
+        library.addBook(book);
+
+        library.borrowBook("1234567890");
+
+        assertTrue(book.isBorrowed());
+    }
+
 }

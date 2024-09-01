@@ -39,4 +39,16 @@ public class LibraryTest {
         });
     }
 
+    @Test
+    public void testReturnBook() throws Exception {
+        Library library = new Library();
+        Book book = new Book("1234567890", "The Great Gatsby", "F. Scott Fitzgerald", 1925);
+        library.addBook(book);
+        library.borrowBook("1234567890");
+
+        library.returnBook("1234567890");
+
+        assertFalse(book.isBorrowed());
+    }
+
 }

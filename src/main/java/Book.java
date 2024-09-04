@@ -15,6 +15,10 @@ public class Book {
         this.isBorrowed = false;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public String getIsbn() {
         return isbn;
     }

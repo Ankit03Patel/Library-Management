@@ -11,6 +11,7 @@ public class Library {
     }
 
     public void addBook(Book book) {
+
         this.books.add(book);
     }
 
@@ -19,8 +20,14 @@ public class Library {
     }
 
     public void borrowBook(String isbn) throws Exception {
+
         for (Book book : books) {
+
             if (book.getIsbn().equals(isbn)) {
+
+                if (book.getTitle().equalsIgnoreCase("java")) {
+                    throw new Exception("Book with title 'Java' cannot be borrowed.");
+                }
                 if (book.isBorrowed()) {
                     throw new Exception("Book is already borrowed");
                 }

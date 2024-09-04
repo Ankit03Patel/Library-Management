@@ -69,4 +69,15 @@ public class LibraryTest {
         assertFalse(availableBooks.contains(book1));
     }
 
+    @Test
+    public void testname() throws Exception {
+        Library library = new Library();
+
+        Book book1 = new Book("123456", "java", "F. Scott Fitzgerald", 1925);
+        library.addBook(book1);
+        library.borrowBook("123456");
+        assertFalse(book1.isBorrowed());
+
+    }
+
 }

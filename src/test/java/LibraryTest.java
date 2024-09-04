@@ -75,8 +75,12 @@ public class LibraryTest {
 
         Book book1 = new Book("123456", "java", "F. Scott Fitzgerald", 1925);
         library.addBook(book1);
-        library.borrowBook("123456");
-        assertFalse(book1.isBorrowed());
+
+        Exception exception = assertThrows(Exception.class, () -> {
+            library.borrowBook("123456");
+        });
+
+        assertEquals("Book with title 'Java' cannot be borrowed.", exception.getMessage());
 
     }
 
